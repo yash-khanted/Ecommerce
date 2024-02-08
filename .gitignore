@@ -35,5 +35,7 @@ build/
 ### Spring Initial folder ###
 ecommerce.zip
 
-### UML files ###
+### All extra poject files ###
 *.drawio.*
+*.csv
+*.env
