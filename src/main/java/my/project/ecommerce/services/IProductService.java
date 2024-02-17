@@ -5,5 +5,6 @@ import my.project.ecommerce.models.Product;
 import java.util.List;
 
 interface IProductService {
-    List<Product>
+    List<Product> fetchAllProducts();
+    Product fetchProduct(int id);
 }

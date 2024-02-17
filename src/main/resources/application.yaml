@@ -1,0 +1,24 @@
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://localhost:3306/ecommerce
+    username: root
+    password: HG@345sdf#ssdf
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+hibernate:
+  dialect: org.hibernate.dialect.MySQL8Dialect
+
+api:
+  url: https://fakestoreapi.com
+
+#spring.jpa.hibernate.ddl-auto=update
+#spring.datasource.url=jdbc:mysql://localhost:3306/ecommerce
+#spring.datasource.username=root
+#spring.datasource.password=HG@345sdf#ssdf
+#spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+#spring.jpa.show-sql=true
+#hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
