@@ -1,0 +1,14 @@
+<div>
+    <form (ngSubmit)="onSubmit" [formGroup]="productForm">
+        <input type="text"
+                formControlName="title" />
+        
+        <input type="text"
+                formControlName="description" />
+
+        <input type="text"
+                formControlName="price" />
+
+        <button type="submit">Submit Product</button>
+    </form>
+</div>
