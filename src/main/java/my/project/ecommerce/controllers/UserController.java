@@ -16,11 +16,11 @@ public class UserController {
 
     @GetMapping(path = "/{userId}")
     public User getUser(@RequestParam Integer userId){
-        return service.fetchUserById(userId);
+        return null;
     }
 
     @PostMapping
     public User postUser(@RequestBody User user){
-        return service.feedUser(user);
+        return null;
     }
 }

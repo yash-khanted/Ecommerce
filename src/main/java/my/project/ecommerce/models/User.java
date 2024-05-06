@@ -1,17 +1,19 @@
 package my.project.ecommerce.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
-@Entity
+import java.time.LocalDateTime;
+import java.util.List;
+
 @Data
-public class User extends Base{
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-    private String username;
+@Entity(name = "user")
+public class User extends BaseModel{
+    private String emailAddress;
     private String password;
+    private String sessionToken;
+    private LocalDateTime sessionStartTime;
+    private LocalDateTime sessionEndTime;
+    @OneToMany(mappedBy = "id")
+    private List<Role> roles;
 }
