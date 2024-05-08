@@ -5,15 +5,18 @@ import lombok.Data;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 
 @Data
-@Entity(name = "user")
+@Entity
 public class User extends BaseModel{
     private String emailAddress;
     private String password;
+    private String name;
+    private String contactNumber;
     private String sessionToken;
     private LocalDateTime sessionStartTime;
     private LocalDateTime sessionEndTime;
     @OneToMany(mappedBy = "id")
-    private List<Role> roles;
+    private Set<Role> roles;
 }

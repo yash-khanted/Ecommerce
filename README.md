@@ -58,9 +58,8 @@ buying multiple products.
    - transactionValue: Double
    - status: boolean
 # CRUD Operations
-Steps to follow
-1. Create model objects according to schema 
-2. design API endpoints for the data access
+## /api/product
+   - 
 
 For Product:
 1. Fetch all products related to category

@@ -1,21 +1,19 @@
 package my.project.ecommerce.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
-@Setter
-@NoArgsConstructor
+@Data
 @Entity
 public class Inventory extends BaseModel{
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     private Product product;
     private double purchasePrice;
-    private int quantity;
-    private Seller seller;
+    private int purchaseQuantity;
+    @ManyToOne
+    @JoinColumn(referencedColumnName = "id")
+    private User seller;
 }

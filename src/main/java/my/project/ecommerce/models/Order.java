@@ -13,7 +13,7 @@ public class Order extends BaseModel{
     @ElementCollection
     @CollectionTable(name = "order_product_map",
             joinColumns = @JoinColumn(name = "consumer_order_id"))
-    @MapKeyColumn(name = "product_id")
+    @MapKeyColumn(name = "product", nullable = false)
     @Column(name = "ordered_quantity")
     private Map<Product, Integer> products;
     @Embedded
@@ -22,6 +22,10 @@ public class Order extends BaseModel{
     private LocalDate expectedDeliveryDate;
     @Enumerated
     private OrderStatus orderStatus;
-    private Consumer consumer;
-    private Seller seller;
+    @ManyToOne
+    @JoinColumn(referencedColumnName = "id")
+    private User consumer;
+    @ManyToOne
+    @JoinColumn(referencedColumnName = "id")
+    private User seller;
 }

@@ -5,6 +5,8 @@ import my.project.ecommerce.dao.interfaces.IUserDao;
 import my.project.ecommerce.models.User;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService implements IUserService{
     private IUserDao userDao;
@@ -25,6 +27,9 @@ public class UserService implements IUserService{
 
     @Override
     public void changePassword(String oldPassword, String newPassword) {
+    }
 
+    public List<User> fetchAllUsers(){
+        return userDao.getAllUsers();
     }
 }

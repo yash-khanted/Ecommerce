@@ -1,12 +1,13 @@
 package my.project.ecommerce.services;
 
+import my.project.ecommerce.dto.ProductRequestDto;
 import my.project.ecommerce.models.Product;
 
 import java.util.List;
 
 public interface IProductService {
     //save method
-    Product saveProduct(Product product);
+    Product saveProduct(ProductRequestDto productRequestDto);
 
     //read Method
     List<Product> fetchProducts(int pageIndex, int offset);

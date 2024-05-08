@@ -19,7 +19,7 @@ import java.time.LocalTime;
 import java.util.List;
 
 @RestController
-@RequestMapping("/product")
+@RequestMapping("/api/product")
 public class ProductController {
     //default, we will use the mysql product service
     private IProductService productService;
@@ -41,7 +41,7 @@ public class ProductController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public void postProduct(@RequestBody Product product){
+    public void postProduct(@RequestBody ProductRequestDto product){
         productService.saveProduct(product);
     }
     @PutMapping
