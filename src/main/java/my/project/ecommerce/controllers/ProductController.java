@@ -1,53 +1,47 @@
 package my.project.ecommerce.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import my.project.ecommerce.dto.ProductRequestDto;
-import my.project.ecommerce.dto.ProductResponseDto;
-import my.project.ecommerce.models.BaseModel;
+import lombok.RequiredArgsConstructor;
+import my.project.ecommerce.dto.ProductDto;
 import my.project.ecommerce.models.Product;
 import my.project.ecommerce.services.IProductService;
 import my.project.ecommerce.services.ProductService;
-import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.List;
 
 @RestController
-@RequestMapping("/product")
+@RequestMapping("/api/product")
 public class ProductController {
-    //default, we will use the mysql product service
-    private IProductService productService;
-    private ObjectMapper objectMapper;
+    private final ProductService productService;
 
-    public ProductController(IProductService productService, ObjectMapper objectMapper) {
+    public ProductController(ProductService productService) {
         this.productService = productService;
-        this.objectMapper = objectMapper;
     }
 
     @GetMapping
-    public void getAllProducts(@RequestParam int pageIndex, @RequestParam int offset){
-        return;
+    public ResponseEntity<List<Product>> getAllProducts(@RequestParam int pageIndex, @RequestParam int offset){
+        return ResponseEntity.ok(productService.fetchProducts(pageIndex, offset));
     }
-
     @GetMapping(path = "/{productId}")
-    public void getProduct(@PathVariable("productId") Long productId){
+    public HttpEntity<Product> getProduct(@PathVariable("productId") long productId){
+        try{
+            return new ResponseEntity<Product>(productService.fetchProduct(productId), HttpStatus.OK);
+        }
+        catch(Exception ex){
+            return new ResponseEntity(ex, HttpStatus.NOT_FOUND);
+        }
     }
-
     @PostMapping
-    @ResponseStatus(HttpStatus.ACCEPTED)
-    public void postProduct(@RequestBody Product product){
-        productService.saveProduct(product);
+    public HttpEntity<Long> postProduct(@RequestBody ProductDto productDto){
+        productService.saveProduct(productDto);
+        return new ResponseEntity<Long>(HttpStatus.ACCEPTED);
     }
     @PutMapping
-    public void updateProduct(@RequestBody ProductRequestDto productUpdateRequestDto){}
+    public void updateProduct(@RequestBody ProductDto productUpdateRequestDto){}
     @DeleteMapping(path = "/{productId}")
-    public void deleteProduct(@PathVariable("productId") Long ProductId){
-
-    }
+    public void deleteProduct(@PathVariable("productId") Long ProductId){}
 }

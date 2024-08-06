@@ -15,9 +15,10 @@ import java.util.Set;
 @Data
 @Entity(name = "seller")
 public class Seller extends BaseModel implements Serializable {
+    @OneToOne
+    private User user;
     private String businessName;
     private String businessAddress;
-    private String contactNumber;
     @OneToMany(mappedBy = "seller",
             fetch = FetchType.LAZY,
             cascade = {CascadeType.PERSIST, CascadeType.REMOVE}

@@ -8,10 +8,10 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 @Component
-public class ProdcutDao implements IProductDao {
+public class ProductDao implements IProductDao {
     IProductRepository productRepository;
 
-    public ProdcutDao(IProductRepository productRepository) {
+    public ProductDao(IProductRepository productRepository) {
         this.productRepository = productRepository;
     }
 
@@ -28,5 +28,10 @@ public class ProdcutDao implements IProductDao {
     @Override
     public List<Product> findAllProducts() {
         return productRepository.findAll();
+    }
+
+    @Override
+    public  Product findById(long id){
+        return productRepository.findById(id).get();
     }
 }

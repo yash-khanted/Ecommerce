@@ -16,6 +16,9 @@ public class Inventory extends BaseModel{
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     private Product product;
     private double purchasePrice;
+    private double sellPrice;
     private int quantity;
+    @ManyToOne
+    @JoinColumn(name = "seller_id")
     private Seller seller;
 }

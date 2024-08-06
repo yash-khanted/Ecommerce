@@ -9,6 +9,8 @@ import java.util.List;
 @Data
 @Entity(name = "user")
 public class User extends BaseModel{
+    private String name;
+    private String mobileNumber;
     private String emailAddress;
     private String password;
     private String sessionToken;

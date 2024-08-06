@@ -11,6 +11,16 @@ specification, price. A consumer can fetch for the products and buy, if it is av
 choose products, they can create wishlist and throw multiple products for checkout. A cart can be maintained for 
 buying multiple products.
 
+## Features
+The features this application is going handle are
+1. Seller POV
+   - Add a new product to the platform
+   - Update the details of an existing product
+2. Consumer POV
+   - Search for a product with keywords
+   - Find all the products related to a category available in the platform
+   - create cart, add products to cart and buy all the products in cart
+
 ## Entities
 1. Product:
     - id: Long
@@ -76,4 +86,13 @@ Login Flow
 
 Validation Flow
 
-1. 
+
+
+# API Endpoints
+
+## User module
+1. ```GET ```: 
+
+## Product
+1. ```GET /product/{id}```: Fetches a product record matching the id
+2. ```GET /product ```

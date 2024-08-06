@@ -1,12 +1,13 @@
 package my.project.ecommerce.services;
 
+import my.project.ecommerce.dto.ProductDto;
 import my.project.ecommerce.models.Product;
 
 import java.util.List;
 
 public interface IProductService {
     //save method
-    Product saveProduct(Product product);
+    long saveProduct(Product product);
 
     //read Method
     List<Product> fetchProducts(int pageIndex, int offset);
@@ -16,5 +17,5 @@ public interface IProductService {
     Product updateProduct(long productId, Product updatedObject);
 
     //delete method
-    void deleteProduct(long produuctId);
+    void deleteProduct(long productId);
 }

@@ -1,5 +1,10 @@
 package my.project.ecommerce.models;
 
-public enum OrderStatus {
-    PROCESSED, PENDING, DELIIVERED, FAILED
+import jakarta.persistence.Entity;
+import lombok.Data;
+
+@Entity
+@Data
+public class OrderStatus extends BaseModel{
+    private String status;
 }
