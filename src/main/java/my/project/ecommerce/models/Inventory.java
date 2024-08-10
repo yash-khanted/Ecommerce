@@ -16,4 +16,6 @@ public class Inventory extends BaseModel{
     @ManyToOne
     @JoinColumn(referencedColumnName = "id")
     private User seller;
+    private double sellPrice;
+    private int quantity;
 }

@@ -20,7 +20,7 @@ public class Order extends BaseModel{
     private Address deliveryAddress;
     private double orderValue;
     private LocalDate expectedDeliveryDate;
-    @Enumerated
+    @ManyToOne
     private OrderStatus orderStatus;
     @ManyToOne
     @JoinColumn(referencedColumnName = "id")

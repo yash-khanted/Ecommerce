@@ -8,10 +8,12 @@ spring:
     username: root
     password: HG@345sdf#ssdf
     driver-class-name: com.mysql.cj.jdbc.Driver
-
+  security:
+    user:
+      name: yashkhanted
+      password: handlethespring
 hibernate:
   dialect: org.hibernate.dialect.MySQL8Dialect
-
 api:
   url: https://fakestoreapi.com
 

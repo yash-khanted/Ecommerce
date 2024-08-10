@@ -10,10 +10,10 @@ import java.util.Set;
 @Data
 @Entity
 public class User extends BaseModel{
+    private String name;
+    private String mobileNumber;
     private String emailAddress;
     private String password;
-    private String name;
-    private String contactNumber;
     private String sessionToken;
     private LocalDateTime sessionStartTime;
     private LocalDateTime sessionEndTime;

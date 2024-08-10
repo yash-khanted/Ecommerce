@@ -1,5 +1,10 @@
 package my.project.ecommerce.models;
 
-public enum ProductCategory {
-    ELECTRONICS, STATIONARY, FMCG, OTHERS
+import jakarta.persistence.Entity;
+import lombok.Data;
+
+@Entity
+@Data
+public class ProductCategory extends BaseModel{
+    private String name;
 }

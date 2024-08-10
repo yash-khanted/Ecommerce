@@ -9,4 +9,5 @@ public interface IProductDao {
     Product save(Product product);
     List<Product> findAllProducts(Pageable pageable);
     List<Product> findAllProducts();
+    Product findById(long id);
 }
