@@ -2,6 +2,7 @@ package my.project.ecommerce.services;
 
 import my.project.ecommerce.dao.implementations.ProductDao;
 import my.project.ecommerce.dao.interfaces.IProductDao;
+import my.project.ecommerce.exceptions.DuplicateRecordFoundException;
 import my.project.ecommerce.models.Inventory;
 import my.project.ecommerce.models.Product;
 import my.project.ecommerce.repositories.IProductRepository;
@@ -30,7 +31,16 @@ public class ProductService implements IProductService{
 
     @Override
     public Product saveProduct(ProductDto productDto) {
-        return productDao.save(mapper.toEntity(productDto));
+        Product product;w
+
+        try {
+            product = productDao.save(mapper.toEntity(productDto));
+        }
+        catch (DuplicateRecordFoundException ex){
+
+        }
+
+        return product;
     }
 
     @Override

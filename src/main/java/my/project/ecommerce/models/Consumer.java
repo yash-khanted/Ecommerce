@@ -20,6 +20,6 @@ public class Consumer extends BaseModel implements Serializable {
     @CollectionTable(name = "cart")
     private Set<Product> cart;
     //represents the product and quantity chosen
-    @OneToMany(mappedBy = "consumer")
+    @OneToMany(mappedBy = "id")
     private List<Order> orders;
 }

@@ -32,6 +32,11 @@ public class ProductController {
             return new ResponseEntity(ex, HttpStatus.NOT_FOUND);
         }
     }
+    @PostMapping
+    public HttpEntity postProduct(ProductDto productDto){
+        productService.saveProduct(productDto);
+        return new HttpEntity<>()
+    }
     @PutMapping
     public void updateProduct(@RequestBody ProductDto productUpdateRequestDto){}
     @DeleteMapping(path = "/{productId}")

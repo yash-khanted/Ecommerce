@@ -22,10 +22,4 @@ public class Order extends BaseModel{
     private LocalDate expectedDeliveryDate;
     @ManyToOne
     private OrderStatus orderStatus;
-    @ManyToOne
-    @JoinColumn(referencedColumnName = "id")
-    private User consumer;
-    @ManyToOne
-    @JoinColumn(referencedColumnName = "id")
-    private User seller;
 }

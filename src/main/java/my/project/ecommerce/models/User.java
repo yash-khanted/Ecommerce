@@ -10,7 +10,8 @@ import java.util.Set;
 @Data
 @Entity
 public class User extends BaseModel{
-    private String name;
+    private String firstName;
+    private String lastName;
     private String mobileNumber;
     private String emailAddress;
     private String password;

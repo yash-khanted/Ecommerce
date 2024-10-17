@@ -13,9 +13,6 @@ public class Inventory extends BaseModel{
     private Product product;
     private double purchasePrice;
     private int purchaseQuantity;
-    @ManyToOne
-    @JoinColumn(referencedColumnName = "id")
-    private User seller;
     private double sellPrice;
     private int quantity;
 }

@@ -5,9 +5,7 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Role {
-    @Id
-    private int id;
-    @Enumerated
-    private UserRole UserRole;
+public class Role extends BaseModel{
+    private String name;
+    private String description;
 }

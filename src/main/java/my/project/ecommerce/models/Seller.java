@@ -19,11 +19,11 @@ public class Seller extends BaseModel implements Serializable {
     private User user;
     private String businessName;
     private String businessAddress;
-    @OneToMany(mappedBy = "seller",
+    @OneToMany(mappedBy = "id",
             fetch = FetchType.LAZY,
             cascade = {CascadeType.PERSIST, CascadeType.REMOVE}
     )
     private List<Inventory> inventory;
-    @OneToMany(mappedBy = "seller")
+    @OneToMany(mappedBy = "id")
     private List<Order> orders;
 }

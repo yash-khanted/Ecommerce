@@ -1,8 +1,10 @@
 package my.project.ecommerce.dao.implementations;
 
 import my.project.ecommerce.dao.interfaces.IProductDao;
+import my.project.ecommerce.exceptions.DuplicateRecordFoundException;
 import my.project.ecommerce.models.Product;
 import my.project.ecommerce.repositories.IProductRepository;
+import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
@@ -21,7 +23,11 @@ public class ProductDao implements IProductDao {
     }
 
     @Override
-    public Product save(Product product) {
+    public Product save(Product product){
+        if(productRepository.exists(Example.of(product))){
+            throw new DuplicateRecordFoundException();
+        }
+
         return productRepository.save(product);
     }
 
